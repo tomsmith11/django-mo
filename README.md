@@ -2,9 +2,9 @@
 
 ### Quick intro for every command ive ran
 
-### 1.
-
 ---
+
+### 1.
 
 ```
 virtualenc -v python -p python3.13

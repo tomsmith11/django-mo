@@ -31,7 +31,7 @@ This creates the main project folder
 source bin/activate
 ```
 
-this runs the venv
+This runs the venv
 
 ---
 
@@ -41,4 +41,14 @@ this runs the venv
 python3 manage.py runserver
 ```
 
-and this command, finally ran the server which allowed me to access the site on port 8000
+This command server which allowed me to access the site on port 8000
+
+---
+
+### 5.
+
+```
+python3 manage.py startapp myapp
+```
+
+This generates the /myapp folder

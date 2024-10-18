@@ -1,4 +1,4 @@
-# django-mo
+# my_django_project
 
 ### Quick intro for every command ive ran
 

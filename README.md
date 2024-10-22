@@ -7,7 +7,7 @@
 ### 1.
 
 ```
-virtualenc -v python -p python3.13
+virtualenv -v python -p python3.13
 ```
 
 This command initialises the venv which is necessary for development

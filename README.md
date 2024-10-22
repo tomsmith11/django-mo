@@ -1,4 +1,4 @@
-# my_django_project
+### my_django_project
 
 ### Quick intro for every command ive ran
 
@@ -52,3 +52,14 @@ python3 manage.py startapp myapp
 ```
 
 This generates the /myapp folder
+
+---
+
+### 6.
+
+Create `urls.py` folder in myapp.py
+Copy the python from myProject/urls.py to myapp/urls.py
+
+### Description
+
+This site is likely going to be used to document my learning of Django and how to use it to create a website. This will likely never be an actual usable site.

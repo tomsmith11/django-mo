@@ -41,7 +41,7 @@ This runs the venv
 python3 manage.py runserver
 ```
 
-This command server which allowed me to access the site on port 8000
+This command runs the site, which we can access on`https://localhost:8000` or `https://127.0.0.1:8000`
 
 ---
 

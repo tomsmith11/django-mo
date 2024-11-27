@@ -1,121 +1,29 @@
 <!DOCTYPE html>
+
+{% load static %}
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registration Form</title>
-    <link rel="stylesheet" href="sastyle.css" />
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f0f2f5;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-      }
-
-      .container {
-        background-color: #ffffff;
-        border-radius: 20px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        padding: 40px;
-        width: 100%;
-        max-width: 400px;
-      }
-
-      .registration-form {
-        background-color: #f9f9f9;
-        border: 2px solid #e0e0e0;
-        border-radius: 15px;
-        padding: 30px;
-      }
-
-      .registration-form h2 {
-        text-align: center;
-        color: #333;
-        margin-bottom: 30px;
-        font-size: 24px;
-      }
-
-      .form-group {
-        margin-bottom: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      label {
-        align-self: flex-start;
-        margin-bottom: 8px;
-        color: #555;
-        font-weight: bold;
-      }
-
-      input,
-      button {
-        width: 100%;
-        padding: 12px;
-        border-radius: 8px;
-        font-size: 16px;
-      }
-
-      input {
-        border: 1px solid #ddd;
-        transition: border-color 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      input:focus {
-        outline: none;
-        border-color: #4a90e2;
-        box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
-      }
-
-      button {
-        background-color: #4a90e2;
-        color: #fff;
-        border: none;
-        font-weight: bold;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.1s ease;
-      }
-
-      button:hover {
-        background-color: #3a7bc8;
-      }
-
-      .container {
-        animation: fadeIn 0.5s ease-out;
-      }
-    </style>
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
   </head>
 
   <body>
     <div class="container">
-      <form class="registration-form" method="POST" action="">
-        {% csrf_token %}
-        <!-- Add CSRF token for security -->
-        <h2>Registration</h2>
-        <div class="form-group">
-          <label for="firstName">First Name</label>
-          <input type="text" id="firstName" name="first_name" required />
-        </div>
-        <div class="form-group">
-          <label for="lastName">Last Name</label>
-          <input type="text" id="lastName" name="last_name" required />
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required />
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" name="password" required />
-        </div>
-        <button type="submit">Register</button>
-      </form>
+      <div class="registration-form">
+        <h2>Welcome!</h2>
+        {% if user.is_authenticated %}
+        <p>Logged in as: {{ user.email }}</p>
+        <form method="POST" action="{% url 'logout' %}">
+          {% csrf_token %}
+          <button type="submit">Logout</button>
+        </form>
+        {% else %}
+        <p>Please <a href="{% url 'login' %}">login</a> to continue.</p>
+        {% endif %}
+      </div>
     </div>
   </body>
 </html>

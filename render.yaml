@@ -6,7 +6,7 @@ services:
     buildCommand: "./build.sh"
     startCommand: "python -m gunicorn myProject.asgi:application -k uvicorn.workers.UvicornWorker"
     envVars:
-      - key: POSTGRES_URL # Changed to match your settings.py
+      - key: POSTGRES_URL
         fromDatabase:
           name: toms-app
           property: connectionString
@@ -14,3 +14,5 @@ services:
         generateValue: true
       - key: WEB_CONCURRENCY
         value: 4
+      - key: DEBUG # Add this to ensure DEBUG is False in production
+        value: false

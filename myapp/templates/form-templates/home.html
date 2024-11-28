@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="{% static 'login-styles/styles.css' %}" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="registration-form">
+        <h2>Welcome!</h2>
+        {% if user.is_authenticated %}
+        <p>Logged in as: {{ user.email }}</p>
+        <form method="POST" action="{% url 'logout' %}">
+          {% csrf_token %}
+          <button type="submit">Logout</button>
+        </form>
+        {% else %}
+        <p>
+          Please <a href="{% url 'login' %}">login</a> to continue. Or, if you
+          don't have an account, <a href="{%url 'register' %}">Register</a>
+        </p>
+        {% endif %}
+      </div>
+    </div>
+  </body>
+</html>

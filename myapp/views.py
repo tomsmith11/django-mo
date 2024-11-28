@@ -21,7 +21,7 @@ def register_view(request):  # Separate registration view
         )
 
         return redirect('login')
-    return render(request, 'register.html')
+    return render(request, 'form-templates/register.html')
 
 def login_view(request):
     if request.method == 'POST':
@@ -37,11 +37,11 @@ def login_view(request):
         else:
             return HttpResponse('Invalid credentials')
             
-    return render(request, 'login.html')
+    return render(request, 'form-templates/login.html')
 
 def logout_view(request):
     logout(request)
     return redirect('login')
 
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'form-templates/home.html')

@@ -21,7 +21,10 @@
           <button type="submit">Logout</button>
         </form>
         {% else %}
-        <p>Please <a href="{% url 'login' %}">login</a> to continue.</p>
+        <p>
+          Please <a href="{% url 'login' %}">login</a> to continue. Or, if you
+          don't have an account, <a href="{%url 'register' %}">Register</a>
+        </p>
         {% endif %}
       </div>
     </div>

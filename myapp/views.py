@@ -20,6 +20,9 @@ def register_view(request):  # Separate registration view
             last_name=last_name
         )
 
+        if User.objects.filter(email=email).exists():
+            return HttpResponse('Email already exists')
+
         return redirect('login')
     return render(request, 'form-templates/register.html')
 
